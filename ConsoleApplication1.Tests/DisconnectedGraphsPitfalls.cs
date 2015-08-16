@@ -106,6 +106,7 @@ namespace ConsoleApplication1.Tests
                 context.Entry(address).Reload();
                 var region = address.Region;
 
+                //Assert
                 Assert.AreNotEqual(region, "Carabanchel", "Region is Carabanchel");
             }
         }
