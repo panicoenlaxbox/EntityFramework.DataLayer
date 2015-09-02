@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace ConsoleApplication1.Tests
 {
-    internal class Graphs
+    internal abstract class TestsInitializer
     {
         [TestFixtureSetUp]
         public void TestFixtureSetUp()

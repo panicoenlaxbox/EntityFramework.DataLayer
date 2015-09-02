@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using NUnit.Framework;
 
 namespace ConsoleApplication1.Tests
 {
     [TestFixture]
-    class ConnectedGraphs : Graphs
+    class ConnectedGraphsTests : TestsInitializer
     {
         [Test]
         public void When_Connected_Graph_Is_Modified_All_Entities_ChangeTracker_Is_Aware()
