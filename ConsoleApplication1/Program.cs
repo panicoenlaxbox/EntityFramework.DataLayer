@@ -11,6 +11,7 @@ namespace ConsoleApplication1
         {
             InitializeDatabase();
 
+            // Manejo de EntityWithState
             //Country country;
             //using (var context = new ManagementContext())
             //{
