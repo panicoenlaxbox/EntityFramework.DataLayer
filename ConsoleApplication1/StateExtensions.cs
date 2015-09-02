@@ -15,7 +15,7 @@ namespace ConsoleApplication1
                 case State.Modified:
                     return EntityState.Modified;
                 default:
-                    return EntityState.Detached;
+                    return EntityState.Unchanged;
             }
         }
     }

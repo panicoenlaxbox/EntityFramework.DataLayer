@@ -6,7 +6,7 @@ using NUnit.Framework;
 
 namespace ConsoleApplication1.Tests
 {
-    class DisconnectedGraphsPitfalls : Graphs
+    class DisconnectedGraphsPitfallsTests : TestsInitializer
     {
         [Test]
         public void DbSet_Add_Set_All_Graph_Added()
@@ -71,7 +71,7 @@ namespace ConsoleApplication1.Tests
 
         [Test]
         [ExpectedException(typeof(InvalidOperationException))]
-        public void DbSet_Attach_Throw_Exception_If_Foreign_Keys_Are_Invalid()
+        public void DbSet_Attach_If_Foreign_Keys_Are_Invalid_Throw_Exception()
         {
             //Assert
             Customer customer = GetFirstCustomerFullLoaded();
@@ -91,7 +91,7 @@ namespace ConsoleApplication1.Tests
 
         [Test]
         [ExpectedException(typeof(InvalidOperationException))]
-        public void DbEntityEntry_State_Modified_Throw_Exception_If_Foreign_Keys_Are_Invalid()
+        public void DbEntityEntry_State_Modified_If_Foreign_Keys_Are_Invalid_Throw_Exception()
         {
             //Assert
             Customer customer = GetFirstCustomerFullLoaded();
