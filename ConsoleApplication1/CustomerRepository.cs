@@ -4,21 +4,22 @@ using System.Linq;
 
 namespace ConsoleApplication1
 {
-    class CustomerRepository : ICustomerRepository, IDisposable
+    public class CustomerRepository : ICustomerRepository
     {
         private readonly ManagementContext _context;
 
-        public CustomerRepository()
+        public CustomerRepository(IUnitOfWork context)
         {
-            _context = new ManagementContext();
+            _context = context.Context;
         }
 
-        public void InsertOrUpdateGraph(Customer customer)
+        public void SaveGraph(Customer customer)
         {
-
+            _context.Customers.Add(customer);
+            _context.ApplyStateChanges();
         }
 
-        public void InsertOrUpdate(Customer customer)
+        public void Save(Customer customer)
         {
             if (customer.CustomerId == default(int))
             {
@@ -32,7 +33,13 @@ namespace ConsoleApplication1
 
         public void Remove(Customer customer)
         {
-            _context.Customers.Remove(customer);
+            _context.Entry(customer).State = EntityState.Deleted;
+        }
+
+        public void Remove(int customerId)
+        {
+            var customer = Get(customerId);
+            Remove(customer);
         }
 
         public IQueryable<Customer> GetAll()
@@ -40,47 +47,9 @@ namespace ConsoleApplication1
             return _context.Customers;
         }
 
-        public Customer Find(int customerId)
+        public Customer Get(int customerId)
         {
             return _context.Customers.Find(customerId);
         }
-
-        public void SaveChanges()
-        {
-            _context.SaveChanges();
-        }
-
-        #region IDisposable
-        bool _disposed;
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        ~CustomerRepository()
-        {
-            Dispose(false);
-        }
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (_disposed)
-                return;
-
-            if (disposing)
-            {
-                // free other managed objects that implement
-                // IDisposable only
-                _context.Dispose();
-            }
-
-            // release any unmanaged objects
-            // set the object references to null
-
-            _disposed = true;
-        }
-        #endregion
     }
 }

@@ -4,15 +4,15 @@ using NUnit.Framework;
 namespace ConsoleApplication1.Tests
 {
     [TestFixture]
-    class ConnectedGraphsTests : TestsInitializer
+    class ConnectedGraphsTests : ManagementContextTestsBase
     {
         [Test]
-        public void When_Connected_Graph_Is_Modified_All_Entities_ChangeTracker_Is_Aware()
+        public void When_Connected_Graph_Is_Modified_ChangeTracker_Is_Aware_For_All_Entities()
         {
             using (var context = new ManagementContext())
             {
                 //Arrange
-                var customer = GetFirstCustomerFullLoaded(context);
+                var customer = GetFirstCustomerFullyLoaded(context);
 
                 //Act
                 customer.Name = "Cliente modificado";

@@ -6,7 +6,7 @@ using NUnit.Framework;
 
 namespace ConsoleApplication1.Tests
 {
-    class DisconnectedGraphsPitfallsTests : TestsInitializer
+    class DisconnectedGraphsPitfallsTests : ManagementContextTestsBase
     {
         [Test]
         public void DbSet_Add_Set_All_Graph_Added()
@@ -19,10 +19,10 @@ namespace ConsoleApplication1.Tests
             }
             var customer = new Customer
             {
-                Name = "Cliente 2",
+                Name = "Nuevo cliente",
                 Addresses = new Collection<Address>()
                 {
-                    new Address() { Region = "Valencia", Country = country }
+                    new Address() { Region = "Nueva región", Country = country }
                 }
             };
 
@@ -44,7 +44,7 @@ namespace ConsoleApplication1.Tests
         public void DbEntityEntry_State_Modified_Only_Set_Current_Entity()
         {
             //Assert
-            var customer = GetFirstCustomerFullLoaded();
+            var customer = GetFirstDisconnectedCustomerFullyLoaded();
             customer.Name = "Cliente modificado";
 
             var address = customer.Addresses.First();
@@ -74,7 +74,7 @@ namespace ConsoleApplication1.Tests
         public void DbSet_Attach_If_Foreign_Keys_Are_Invalid_Throw_Exception()
         {
             //Assert
-            Customer customer = GetFirstCustomerFullLoaded();
+            var customer = GetFirstDisconnectedCustomerFullyLoaded();
 
             var country = new Country() { Name = "Nuevo país" };
             customer.Addresses.First().Country = country;
@@ -94,7 +94,7 @@ namespace ConsoleApplication1.Tests
         public void DbEntityEntry_State_Modified_If_Foreign_Keys_Are_Invalid_Throw_Exception()
         {
             //Assert
-            Customer customer = GetFirstCustomerFullLoaded();
+            var customer = GetFirstDisconnectedCustomerFullyLoaded();
 
             var country = new Country() { Name = "Nuevo país" };
             customer.Addresses.First().Country = country;

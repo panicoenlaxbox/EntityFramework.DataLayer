@@ -1,13 +1,14 @@
+using System;
 using System.Linq;
 
 namespace ConsoleApplication1
 {
     public interface ICustomerRepository
     {
-        void InsertOrUpdate(Customer customer);
+        void Save(Customer customer);
         void Remove(Customer customer);
+        void Remove(int customerId);
         IQueryable<Customer> GetAll();
-        Customer Find(int customerId);
-        void SaveChanges();
+        Customer Get(int customerId);
     }
 }
