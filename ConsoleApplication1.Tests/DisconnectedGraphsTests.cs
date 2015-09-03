@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace ConsoleApplication1.Tests
 {
     [TestFixture]
-    class DisconnectedGraphsTests : TestsInitializer
+    class DisconnectedGraphsTests : ManagementContextTestsBase
     {
         [Test]
         public void Manage_EntityWithState()
@@ -29,18 +29,20 @@ namespace ConsoleApplication1.Tests
                         Region = "Nueva región 1",
                         CountryId = country.CountryId,
                         Country = country,                        
-                    },
+                    }
+                    ,
                     new Address()
                     {
                         State = State.Added,
                         Region = "Nueva región 2",
-                        CountryId = country.CountryId,                        
-                    },
+                        CountryId = country.CountryId,
+                    }
+                    ,
                     new Address()
                     {
                         State = State.Added,
                         Region = "Nueva región 3",
-                        Country = country,                        
+                        Country = country,
                     }
                 }
             };
@@ -65,8 +67,6 @@ namespace ConsoleApplication1.Tests
 
                 var nuevaRegion3 = customer.Addresses.Single(p => p.Region == "Nueva región 3");
                 Assert.AreNotEqual(nuevaRegion3.CountryId, 0, "CountryId es 0");
-
-                context.SaveChanges();
             }
         }
     }
