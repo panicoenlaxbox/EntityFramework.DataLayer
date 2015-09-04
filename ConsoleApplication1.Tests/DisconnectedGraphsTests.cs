@@ -27,7 +27,7 @@ namespace ConsoleApplication1.Tests
                     {
                         State = State.Added,
                         Region = "Nueva región 1",
-                        CountryId = country.CountryId,
+                        CountryId = country.Id,
                         Country = country,                        
                     }
                     ,
@@ -35,7 +35,7 @@ namespace ConsoleApplication1.Tests
                     {
                         State = State.Added,
                         Region = "Nueva región 2",
-                        CountryId = country.CountryId,
+                        CountryId = country.Id,
                     }
                     ,
                     new Address()

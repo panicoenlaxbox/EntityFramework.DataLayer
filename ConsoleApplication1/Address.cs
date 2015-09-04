@@ -1,8 +1,9 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace ConsoleApplication1
 {
-    public class Address : EntityWithState
+    public class Address : Entity
     {
-        public int AddressId { get; set; }
         public string Region { get; set; }
         public int CountryId { get; set; }
         public virtual Country Country { get; set; }
