@@ -82,7 +82,7 @@ namespace ConsoleApplication1.Tests
             using (var context = new ManagementContext())
             {
                 //Assert
-                Assert.AreNotEqual(country.CountryId, customer.Addresses.First().CountryId);
+                Assert.AreNotEqual(country.Id, customer.Addresses.First().CountryId);
 
                 //Act
                 context.Customers.Attach(customer);
@@ -102,7 +102,7 @@ namespace ConsoleApplication1.Tests
             using (var context = new ManagementContext())
             {
                 //Assert
-                Assert.AreNotEqual(country.CountryId, customer.Addresses.First().CountryId);
+                Assert.AreNotEqual(country.Id, customer.Addresses.First().CountryId);
 
                 //Act
                 context.Entry(customer).State = EntityState.Modified;

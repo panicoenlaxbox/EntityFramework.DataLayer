@@ -6,7 +6,7 @@ namespace ConsoleApplication1
     {
         public static void ApplyStateChanges(this DbContext context)
         {
-            foreach (var entry in context.ChangeTracker.Entries<EntityWithState>())
+            foreach (var entry in context.ChangeTracker.Entries<Entity>())
             {
                 entry.State = entry.Entity.State.ConvertToEntityState();
             }

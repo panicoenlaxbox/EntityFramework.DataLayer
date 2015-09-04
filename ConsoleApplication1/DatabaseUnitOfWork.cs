@@ -1,8 +1,8 @@
 namespace ConsoleApplication1
 {
-    public class UnitOfWork : IUnitOfWork
+    public class DatabaseUnitOfWork : IUnitOfWork
     {
-        public UnitOfWork(ManagementContext context)
+        public DatabaseUnitOfWork(ManagementContext context)
         {
             Context = context;
         }
