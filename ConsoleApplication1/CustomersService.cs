@@ -1,4 +1,7 @@
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using AutoMapper.QueryableExtensions;
 
 namespace ConsoleApplication1
@@ -19,8 +22,12 @@ namespace ConsoleApplication1
 
         public IQueryable<CustomerDTO> GetAll_DTO(string name)
         {
-            return _customerRepository.GetAll(CustomerRepository.Predicates(p => p.Name.Contains(name)), null)
-                .ProjectTo<CustomerDTO>();
+            var predicates = new List<Expression<Func<Customer, bool>>>();
+            if (!string.IsNullOrWhiteSpace(name))
+            {
+                //predicates.Add(p => p.Name.Contains(name.Trim()));
+            }
+            return _customerRepository.GetAll(predicates, null).ProjectTo<CustomerDTO>();
         }
     }
 
