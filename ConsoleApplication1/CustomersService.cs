@@ -3,7 +3,12 @@ using AutoMapper.QueryableExtensions;
 
 namespace ConsoleApplication1
 {
-    public class CustomersService
+    public interface ICustomersService
+    {
+        IQueryable<CustomerDTO> GetAll_DTO(string name);
+    }
+
+    public class CustomersService : ICustomersService
     {
         private readonly ICustomerRepository _customerRepository;
 
