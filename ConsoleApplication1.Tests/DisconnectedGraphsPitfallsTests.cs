@@ -65,7 +65,7 @@ namespace ConsoleApplication1.Tests
                 context.Entry(address).Reload();
 
                 //Assert
-                Assert.AreNotEqual(address.Region, newRegion, $"Region no es {newRegion}");
+                Assert.AreNotEqual(address.Region, newRegion, String.Format("Region no es {0}", newRegion));
             }
         }
 

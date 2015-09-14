@@ -89,7 +89,7 @@ namespace ConsoleApplication1
         public void ExecuteScriptFilesFromFolder(string path)
         {
             if (path == null)
-                throw new ArgumentNullException(nameof(path));
+                throw new ArgumentNullException("path");
             if (!Directory.Exists(path))
                 throw new DirectoryNotFoundException("scriptsPath not found");
 

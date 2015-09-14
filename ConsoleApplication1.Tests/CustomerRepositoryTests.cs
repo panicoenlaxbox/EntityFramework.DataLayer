@@ -139,7 +139,7 @@ namespace ConsoleApplication1.Tests
                 var customerRepository = new CustomerRepository(unitOfWork);
 
                 //Act
-                var total = customerRepository.GetAll(CustomerRepository.Predicates(p => p.Id > 5), null).Count();
+                var total = customerRepository.GetAll(RepositoryUtilities.Predicates<Customer>(p => p.Id > 5), null).Count();
 
                 //Assert
                 Assert.AreEqual(15, total);
@@ -159,7 +159,7 @@ namespace ConsoleApplication1.Tests
                 var customerRepository = new CustomerRepository(unitOfWork);
 
                 //Act
-                var predicates = CustomerRepository.Predicates(p => p.Id > 2, p => p.Code.StartsWith("A"));
+                var predicates = RepositoryUtilities.Predicates<Customer>(p => p.Id > 2, p => p.Code.StartsWith("A"));
                 var total = customerRepository.GetAll<Customer>(predicates, null, null).Count();
 
                 //Assert

@@ -210,7 +210,7 @@ namespace ConsoleApplication1
         private static string ObjectToString(object obj)
         {
             if (obj.GetType().Name == "String")
-                return $"\"{obj}\"";
+                return obj.ToString();
             if (obj.ToString() == "")
                 return "null";
             return obj.ToString();
