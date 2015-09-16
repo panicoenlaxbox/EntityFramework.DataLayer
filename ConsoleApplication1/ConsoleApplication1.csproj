@@ -58,7 +58,7 @@
   <ItemGroup>
     <Compile Include="Address.cs" />
     <Compile Include="CustomersService.cs" />
-    <Compile Include="DbSqlExecutor.cs" />
+    <Compile Include="DbSqlExecuter.cs" />
     <Compile Include="Country.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerRepository.cs" />

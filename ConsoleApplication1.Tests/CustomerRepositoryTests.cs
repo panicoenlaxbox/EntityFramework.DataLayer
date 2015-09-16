@@ -152,8 +152,8 @@ namespace ConsoleApplication1.Tests
             //Arrange            
             using (var context = new ManagementContext())
             {
-                var executor = new DbSqlExecutor(context.Database.Connection.ConnectionString);
-                executor.ExecuteScriptFile(Path.Combine(Environment.CurrentDirectory, "Scripts", "2 - Customers.sql"));
+                var executer = new DbSqlExecuter(context.Database.Connection.ConnectionString);
+                executer.ExecuteScriptFile(Path.Combine(Environment.CurrentDirectory, "Scripts", "2 - Customers.sql"));
 
                 var unitOfWork = new DatabaseUnitOfWork(context);
                 var customerRepository = new CustomerRepository(unitOfWork);
@@ -218,8 +218,8 @@ namespace ConsoleApplication1.Tests
             //Arrange            
             using (var context = new ManagementContext())
             {
-                var executor = new DbSqlExecutor(context.Database.Connection.ConnectionString);
-                executor.ExecuteScriptFile(Path.Combine(Environment.CurrentDirectory, "Scripts", "2 - Customers.sql"));
+                var executer = new DbSqlExecuter(context.Database.Connection.ConnectionString);
+                executer.ExecuteScriptFile(Path.Combine(Environment.CurrentDirectory, "Scripts", "2 - Customers.sql"));
 
                 var unitOfWork = new DatabaseUnitOfWork(context);
                 var customerRepository = new CustomerRepository(unitOfWork);

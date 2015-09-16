@@ -62,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomersServiceTests.cs" />
-    <Compile Include="DbSqlExecutorTests.cs" />
+    <Compile Include="DbSqlExecuterTests.cs" />
     <Compile Include="ConnectedGraphsTests.cs" />
     <Compile Include="CustomerRepositoryTests.cs" />
     <Compile Include="DisconnectedGraphsTests.cs" />

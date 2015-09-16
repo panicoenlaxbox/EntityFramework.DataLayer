@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 
 namespace ConsoleApplication1
 {
-    public class DbSqlExecutor
+    public class DbSqlExecuter
     {
         private const string MasterDatabaseName = "master";
 
@@ -17,7 +17,7 @@ namespace ConsoleApplication1
         private readonly string _password;
         private readonly string _userId;
 
-        public DbSqlExecutor(string connectionString)
+        public DbSqlExecuter(string connectionString)
         {
             if (string.IsNullOrWhiteSpace(connectionString))
                 throw new ArgumentNullException("connectionString");
@@ -28,7 +28,7 @@ namespace ConsoleApplication1
             _password = connectionStringBuilder.Password;
         }
 
-        public DbSqlExecutor(string initialCatalog, string dataSource, string userId, string password)
+        public DbSqlExecuter(string initialCatalog, string dataSource, string userId, string password)
         {
             if (string.IsNullOrWhiteSpace(initialCatalog)) throw new ArgumentNullException("initialCatalog");
             if (string.IsNullOrWhiteSpace(dataSource)) throw new ArgumentNullException("dataSource");

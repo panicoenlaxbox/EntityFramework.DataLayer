@@ -6,13 +6,13 @@ using NUnit.Framework;
 namespace ConsoleApplication1.Tests
 {
     [TestFixture]
-    public class DbSqlExecutorTests
+    public class DbSqlExecuterTests
     {
         private string _initialCatalog;
         private string _dataSource;
         private string _userId;
         private string _password;
-        private DbSqlExecutor _sut;
+        private DbSqlExecuter _sut;
         private string _folderPath;
         private const string ScriptsDirectoryName = "Scripts";
 
@@ -24,7 +24,7 @@ namespace ConsoleApplication1.Tests
             _userId = "sa";
             _password = "sqltab2005";
 
-            _sut = GetNewDbSqlExecutor();
+            _sut = GetNewDbSqlExecuter();
             _folderPath = Path.Combine(Environment.CurrentDirectory, ScriptsDirectoryName);
         }
 
@@ -57,9 +57,9 @@ namespace ConsoleApplication1.Tests
             }
         }
 
-        private DbSqlExecutor GetNewDbSqlExecutor()
+        private DbSqlExecuter GetNewDbSqlExecuter()
         {
-            return new DbSqlExecutor(_initialCatalog, _dataSource, _userId, _password);
+            return new DbSqlExecuter(_initialCatalog, _dataSource, _userId, _password);
         }
 
         [Test]
