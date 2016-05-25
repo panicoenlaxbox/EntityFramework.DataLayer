@@ -1,8 +1,10 @@
+using System.Data.Entity;
+
 namespace ConsoleApplication1
 {
     public interface IUnitOfWork
     {
-        ManagementContext Context { get; }
+        DbContext Context { get; }
         void Save();
     }
 }

@@ -155,8 +155,8 @@ namespace ConsoleApplication1.Tests
             //Arrange            
             using (var context = new ManagementContext())
             {
-                var executor = new DbSqlExecutor(context.Database.Connection.ConnectionString);
-                executor.ExecuteScriptFile(Path.Combine(Environment.CurrentDirectory, "Scripts", "2 - Customers.sql"));
+                var executor = new SqlExecutor(context.Database.Connection.ConnectionString);
+                executor.ExecuteScript(Path.Combine(Environment.CurrentDirectory, "Scripts", "2 - Customers.sql"));
 
                 var unitOfWork = new DatabaseUnitOfWork(context);
                 var customerRepository = new CustomerRepository(unitOfWork);
@@ -221,14 +221,14 @@ namespace ConsoleApplication1.Tests
             //Arrange            
             using (var context = new ManagementContext())
             {
-                var executor = new DbSqlExecutor(context.Database.Connection.ConnectionString);
-                executor.ExecuteScriptFile(Path.Combine(Environment.CurrentDirectory, "Scripts", "2 - Customers.sql"));
+                var executor = new SqlExecutor(context.Database.Connection.ConnectionString);
+                executor.ExecuteScript(Path.Combine(Environment.CurrentDirectory, "Scripts", "2 - Customers.sql"));
 
                 var unitOfWork = new DatabaseUnitOfWork(context);
                 var customerRepository = new CustomerRepository(unitOfWork);
 
                 //Act
-                PaginatedResult<Customer> result = customerRepository.GetPaginated(paginatedData.PageIndex, paginatedData.PageSize, null, null, p => p.Id);
+                PaginatedResult<Customer> result = customerRepository.GetPaginated(null, null, p => p.Id, paginatedData.PageIndex, paginatedData.PageSize);
 
                 //Assert
                 Assert.AreEqual(paginatedData.ResultCount, result.Result.Count());

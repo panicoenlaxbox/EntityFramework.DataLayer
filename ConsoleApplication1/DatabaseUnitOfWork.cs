@@ -1,13 +1,15 @@
+using System.Data.Entity;
+
 namespace ConsoleApplication1
 {
     public class DatabaseUnitOfWork : IUnitOfWork
     {
-        public DatabaseUnitOfWork(ManagementContext context)
+        public DatabaseUnitOfWork(DbContext context)
         {
             Context = context;
         }
 
-        public ManagementContext Context { get; private set; }
+        public DbContext Context { get; private set; }
 
         public void Save()
         {
