@@ -37,6 +37,9 @@
       <HintPath>..\packages\AutoMapper.4.0.4\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -63,10 +66,12 @@
     <Compile Include="ICustomerRepository.cs" />
     <Compile Include="ICustomersService.cs" />
     <Compile Include="IGenericRepository.cs" />
+    <Compile Include="ModelBuilderExtensions.cs" />
     <Compile Include="OrderByExtension.cs" />
     <Compile Include="PaginatedConfiguration.cs" />
     <Compile Include="PaginatedResult.cs" />
     <Compile Include="Repository.cs" />
+    <Compile Include="SqlBulkCopyExtensions.cs" />
     <Compile Include="SqlExecutor.cs" />
     <Compile Include="Country.cs" />
     <Compile Include="Customer.cs" />
